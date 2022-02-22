@@ -4,7 +4,7 @@ prix = randint(1, 100)
 tentative = 10
 nombre_de_tentative = 0
 reponse = int(
-    input(f"Entrer un prix entre 1 et 100 vous avez {tentative} tentative : "))
+    input(f"Entrer un prix entre 1 et 100 vous avez {tentative} tentative : "))  # le décalage est du à l'indentation automatique
 
 while prix != reponse:
     tentative -= 1
@@ -21,4 +21,4 @@ while prix != reponse:
         exit()
 if prix == reponse:
     print(
-        f"Bravo bien joué, il vous a fallu {nombre_de_tentative+1} pour touvez le juste prix est de {prix}")
+        f"Bravo bien joué, il vous a fallu {nombre_de_tentative+1} pour touvez le juste prix est de {prix}")  # le décalage est du à l'indentation automatique
