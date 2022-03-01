@@ -22,3 +22,4 @@ while prix != reponse:
 if prix == reponse:
     print(
         f"Bravo bien joué, il vous a fallu {nombre_de_tentative+1} pour touvez le juste prix est de {prix}")  # le décalage est du à l'indentation automatique
+# fini
