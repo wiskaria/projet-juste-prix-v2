@@ -39,7 +39,7 @@ while TRUE:
         prix = randint(1, maxi_choi)
         reponse = int(
             input(f"Entrer un prix entre 1 et 100 vous avez 10 tentative : "))
-        nombre_de_tentative =
+        nombre_de_tentative = int(input("Entre "))
 
         if prix > reponse:
             print(f"Plus grande que {reponse}")
