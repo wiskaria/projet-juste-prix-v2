@@ -1,6 +1,3 @@
-#  désoler je n'est pas put finir a temps
-
-
 from pickle import TRUE
 from random import randint
 print("Bonjour et bienvenue au juste prix")
@@ -51,24 +48,38 @@ while TRUE:
         elif nombre_de_tentative_nv2 == 10:
             print(f"Partie terminée la bonne réponse était {prix_nv2}")
             exit()
+# Inspitre du travaille de nacera
     elif niveaux == 3:
-        maxi_choi = int(
-            input("Choisissez le prix maximal le minimome est 1 : "))
-        prix_nv3 = randint(1, maxi_choi)
-        nombre_de_tentative = int(input("Entre un nombre de tentative :  "))
-        reponse_nv3 = int(
-            input(f"Entrer un prix entre 1 et {maxi_choi} vous avez 10 tentative : "))
-        tentative = nombre_de_tentative
-        while nombre_de_tentative != tentative and reponse_nv3 != prix_nv3:
-            tentative = tentative-1
-            if prix_nv3 > reponse_nv3:
-                print(f"Plus grande que {reponse_nv3}")
-                reponse_nv3 = int(input("Entrer un prix: "))
+
+        nombre_de_tentative_nv3 = 1
+        nombre_de_tentative_nv3_max = int(
+            input("Choisissez le nombre d'essaie : "))
+        prix_minimum = 1
+        choix_prix_maximum = int(
+            input("Choisissez un nombre maximum: "))
+        prix = int(
+            input(f"Entrer un nombre entre 1 et {choix_prix_maximum} : "))
+        juste_prix = randint(prix_minimum, choix_prix_maximum)
+        while juste_prix != prix and nombre_de_tentative_nv3 < nombre_de_tentative_nv3_max:
+            if juste_prix < prix:
+                print("c'est moin reessayer")
+                print(
+                    f"Vous avez utiliser {nombre_de_tentative_nv3} essai sur {nombre_de_tentative_nv3_max}\n")
+                prix = int(
+                    input(f"Entre nombre entre 1 et {choix_prix_maximum} : "))
+            elif juste_prix > prix:
+                print("c'est plus reessayer")
+                print(
+                    f"Vous avez utiliser {nombre_de_tentative_nv3} essai sur {nombre_de_tentative_nv3_max}")
+                prix = int(
+                    input(f"Entre nombre entre 1 et {choix_prix_maximum} : "))
+            nombre_de_tentative_nv3 += 1
+        else:
+            if juste_prix != prix:
+                print(" Il ne vous reste plus d'essai ")
+                print(f" Vous avez perdu le bon nombre etait ({juste_prix})")
+
             else:
-                print(f"Plus petit que {reponse_nv3}")
-                reponse_nv3 = int(input("Entrer un prix: "))
-        if prix_nv3 == reponse_nv3:
-            print(
-                f"Bravo bien joué, il vous a fallu {nombre_de_tentative+1} pour touvez le juste prix est de {prix_nv3}")
-        if tentative == 0:
-            print(f"Partie terminée la bonne réponse était {prix_nv3}")
+                print(
+                    f"BRAVO le numero {juste_prix} est le numero gagnant,vous avez trouvé apres {nombre_de_tentative_nv3} essai de ce fait la parti est terminer au revoir au plaisir de vous revoir à tres bientôt.")
+            exit
