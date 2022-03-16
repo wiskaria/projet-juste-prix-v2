@@ -53,36 +53,40 @@ while TRUE:
 
         nombre_de_tentative_nv3 = 1
         nombre_de_tentative_nv3_max = int(
-            input("Choisissez le nombre d'essaie \n ci vous entrez 1 les essais seront illimités : "))
+            input("Choisissez le nombre d'essaie \n ci vous entrez 0 les essais seront illimités : "))
         prix_minimum = 1
         choix_prix_maximum = int(
             input("Choisissez une prix maximum: "))
         prix = int(
             input(f"Entrer un nombre entre 1 et {choix_prix_maximum} : "))
         juste_prix = randint(prix_minimum, choix_prix_maximum)
-        while juste_prix != prix or nombre_de_tentative_nv3 < nombre_de_tentative_nv3_max:
+        while juste_prix != prix and (nombre_de_tentative_nv3 < nombre_de_tentative_nv3_max or nombre_de_tentative_nv3_max == 0):
+
             if juste_prix < prix:
                 print("c'est moin reessayer")
                 prix = int(
                     input(f"Entre nombre entre 1 et {choix_prix_maximum} : "))
-                if nombre_de_tentative_nv3_max > 1:
-                    print(
-                        f"Vous avez utiliser {nombre_de_tentative_nv3} essai sur {nombre_de_tentative_nv3_max}\n")
+
             elif juste_prix > prix:
                 print("c'est plus reessayer")
                 prix = int(
                     input(f"Entre nombre entre 1 et {choix_prix_maximum} : "))
-                if nombre_de_tentative_nv3_max > 1:
-                    print(
-                        f"Vous avez utiliser {nombre_de_tentative_nv3} essai sur {nombre_de_tentative_nv3_max}")
-            elif nombre_de_tentative_nv3_max > 1:
+
+            if nombre_de_tentative_nv3_max != 0:
                 nombre_de_tentative_nv3 += 1
+                print(
+                    f"Vous avez utiliser {nombre_de_tentative_nv3} essai sur {nombre_de_tentative_nv3_max}")
         else:
             if juste_prix != prix:
                 print(" Il ne vous reste plus d'essai ")
                 print(f" Vous avez perdu le bon nombre etait ({juste_prix})")
 
             else:
-                print(
-                    f"Bravo le numero {juste_prix} est le numero gagnant,vous avez trouvé apres {nombre_de_tentative_nv3} essai de ce fait la parti est terminer au revoir au plaisir de vous revoir à tres bientôt.")
-            exit
+                if nombre_de_tentative_nv3_max != 0:
+                    print(
+                        f"Bravo le juste prix est {juste_prix} ,vous avez trouvé apres {nombre_de_tentative_nv3} essai de ce fait la parti est terminer au revoir au plaisir de vous revoir à tres bientôt.")
+                else:
+                    print(
+                        f"Bravo le juste prix est {juste_prix} ,la partie est terminer au revoir au plaisir de vous revoir à tres bientôt.")
+
+            exit()
